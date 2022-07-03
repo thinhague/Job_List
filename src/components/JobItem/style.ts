@@ -12,10 +12,22 @@ export const Container = styled.main`
     padding: 20px;
     box-shadow: 3px 6px 10px -1px rgba(0,0,0,0.63);
 
+    @media (max-width:900px) {
+        height: auto;
+        width: 80%;
+        flex-direction: column;
+        margin: 80px auto;
+    }
+
     section {
         display: flex;
         width: 50%;
         height: 100%;
+
+        @media (max-width:900px) {
+            flex-direction: column;
+            width: 100%;
+        }
     }
 `;
 
@@ -28,9 +40,19 @@ export const ContainerLeft = styled.div`
     height: 100%;
     margin-right: 15px;
 
+    @media (max-width: 900px) {
+        height: 0;
+    }
+
     img {
         width: 100%;
         max-width: 110px;
+
+        @media (max-width:900px) {
+            position: relative;
+            max-width: 80px;
+            top: -22px;
+        }
     }
 `;
 
@@ -39,6 +61,10 @@ export const ContainerRight = styled.div`
     flex-direction: column;
     width: 70%;
     height: 100%;
+
+    @media (max-width:900px) {
+        width: 100%;
+    }
 
     div {
         display: flex;
@@ -69,6 +95,10 @@ export const ContainerRight = styled.div`
         justify-content: space-between;
         width: 100%;
         padding: 15px 0;
+
+        @media (max-width:900px) {
+            gap: 15px;
+        }
     }
 `;
 
@@ -118,6 +148,11 @@ export const ContainerLanguages = styled.div`
     align-items: center;
     width: 100%;
     gap: 10px;
+
+    @media (max-width:900px) {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
 
     input {
         outline: none;

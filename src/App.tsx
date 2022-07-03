@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import * as C from './App.styles';
 import ImgHeader from './assets/bg-header-desktop.svg';
+import ImgHeaderMobile from './assets/bg-header-mobile.svg';
 import SearchBar from './components/SearchBar';
 import JobItem from './components/JobItem';
 import { ItemJob } from './types/ItemJob';
+import  useWindowDimensions  from './hooks/useWindowDimensions';
 
 const App = () => {
   useEffect(()=>{
@@ -19,6 +21,7 @@ const App = () => {
 
   const [list,setList] = useState<ItemJob[]>([])
   const [search, setSearch] = useState<string[]>([])
+  const { width } = useWindowDimensions();
   
   const filter = (value:string) => {
    setList(list.filter(
@@ -30,19 +33,21 @@ const App = () => {
     if(!validateSearch) setSearch([...search, value])
  
   }
-
+    
   return (
     <C.Container>
       <C.Header>
-        <img src={ImgHeader} alt='image' />
+        <img src={width > 900 ? ImgHeader : ImgHeaderMobile} alt='image' />
       </C.Header>
 
-      <SearchBar
-        search={search}
-        setSearch={setSearch}
-        setList={setList}
-        list={list}
-      />
+      {search.length > 0 &&
+        <SearchBar
+          search={search}
+          setSearch={setSearch}
+          setList={setList}
+          list={list}
+        />
+      }
 
       {list.map((item, index) => (
         <JobItem key={index} item={item} filter={filter} />

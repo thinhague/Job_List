@@ -5,6 +5,10 @@ export const Container = styled.div`
     position: relative;
     top: -35px;
     margin: 0 auto;
+
+    @media (max-width:900px) {
+        width: 90%;
+    }
 `;
 
 export const Bar = styled.section`
@@ -18,6 +22,10 @@ export const Bar = styled.section`
     border-radius: 6px;
     background-color: hsl(180, 31%, 95%);
     box-shadow: 3px 6px 10px -1px rgba(0,0,0,0.63);
+
+    @media (max-width:900px) {
+        height: auto;
+    }
 `;
 
 export const ContainerLeft = styled.section`
@@ -25,6 +33,10 @@ export const ContainerLeft = styled.section`
     align-items: center;
     gap: 15px;
     width: 95%;
+
+    @media (max-width:900px) {
+        flex-wrap: wrap;
+    }
 `;
 
 export const ContainerRight = styled.section`
@@ -32,6 +44,10 @@ export const ContainerRight = styled.section`
     justify-content: end;
     align-items: center;
     width: 5%;
+
+    @media (max-width:900px) {
+        width: auto;
+    }
 
     button {
         color:hsl(180, 29%, 50%);

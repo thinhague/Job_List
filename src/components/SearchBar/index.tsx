@@ -13,58 +13,56 @@ interface Props {
 const SearchBar = ({ search, setSearch, setList, list }: Props) => {
 
     useEffect(() => {
-        for(let i in search) {
+        for (let i in search) {
             const item = search[i]
             setList(list.filter(e =>
-                 e.role === item || 
-                 e.level === item ||
-                 e.languages[e.languages.indexOf(item)] === item))
+                e.role === item ||
+                e.level === item ||
+                e.languages[e.languages.indexOf(item)] === item))
         }
-    },[search])
-    
-    const removeItemSearch = async (value:string) => {
-        await fetch("./data.json",{
+    }, [search])
+
+    const removeItemSearch = async (value: string) => {
+        await fetch("./data.json", {
             headers: {
                 Accept: "application/json",
             },
         })
-        .then(res => res.json())
-        .then(res => setList(res));
+            .then(res => res.json())
+            .then(res => setList(res));
         setSearch(search.filter(e => e !== value))
     }
 
     const clear = () => {
         setSearch([])
-        fetch("./data.json",{
+        fetch("./data.json", {
             headers: {
-              Accept: "application/json",
+                Accept: "application/json",
             },
-          })
-          .then(res => res.json())
-          .then(res => setList(res));
+        })
+            .then(res => res.json())
+            .then(res => setList(res));
     }
 
     return (
         <C.Container>
-           {search.length > 0 ?
+
             <C.Bar>
-            <C.ContainerLeft>
-                {search.map((item, index) => (
-                    <ItemSearch
-                        key={index}
-                        item={item}
-                        deleteItem={removeItemSearch}
-                    />
-                ))}
-            </C.ContainerLeft>
+                <C.ContainerLeft>
+                    {search.map((item, index) => (
+                        <ItemSearch
+                            key={index}
+                            item={item}
+                            deleteItem={removeItemSearch}
+                        />
+                    ))}
+                </C.ContainerLeft>
 
-            <C.ContainerRight>
-                <button onClick={clear}>Clear</button>
-            </C.ContainerRight>
+                <C.ContainerRight>
+                    <button onClick={clear}>Clear</button>
+                </C.ContainerRight>
 
-        </C.Bar>
-        :
-        null}
+            </C.Bar>
 
         </C.Container>
     )
