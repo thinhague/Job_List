@@ -42,7 +42,7 @@ TypeScript.
 #### Clonando o projeto
 ```sh
 git clone https://github.com/thinhague/Job_List
-cd PROJETO-SA
+cd Job_List
 Depois disso é so mexer no projeto.
 ```
 
