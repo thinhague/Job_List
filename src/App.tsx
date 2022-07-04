@@ -24,13 +24,15 @@ const App = () => {
   const { width } = useWindowDimensions();
   
   const filter = (value:string) => {
-   setList(list.filter(
-    e => e.role === value ||
-    e.level === value ||
-    e.languages[e.languages.indexOf(value)] === value))
-    
     const validateSearch = search.some(item => item === value)
-    if(!validateSearch) setSearch([...search, value])
+    if(validateSearch) return
+
+    setSearch([...search, value])
+    setList(list.filter(
+      e => e.role === value ||
+      e.level === value ||
+      e.languages[e.languages.indexOf(value)] === value))
+    
  
   }
     
