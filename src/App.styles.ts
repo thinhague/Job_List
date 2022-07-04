@@ -7,7 +7,7 @@ export const Container = styled.div`
 `;
 
 export const Header = styled.div`
-
+    background-color: hsl(180, 29%, 50%);
     img {
         width: 100%;
     }
