@@ -32,14 +32,12 @@ const App = () => {
       e => e.role === value ||
       e.level === value ||
       e.languages[e.languages.indexOf(value)] === value))
-    
- 
   }
-    
+  const image:string = width > 900 ? ImgHeader : ImgHeaderMobile
   return (
     <C.Container>
       <C.Header>
-        <img src={width > 900 ? ImgHeader : ImgHeaderMobile} alt='image' />
+        <img src={image} alt='image' />
       </C.Header>
 
       {search.length > 0 &&

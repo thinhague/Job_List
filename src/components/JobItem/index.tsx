@@ -41,14 +41,14 @@ const JobItem = ({ item, filter }:Props) => {
                 <C.ContainerLanguages>
 
                     <input
-                        readOnly={true}
+                        readOnly
                         value={item.role}
                         type="button"
                         onClick={e => filter(e.currentTarget.value)}
                     />
 
                     <input
-                        readOnly={true}
+                        readOnly
                         value={item.level}
                         type="button"
                         onClick={e => filter(e.currentTarget.value)}
@@ -57,7 +57,7 @@ const JobItem = ({ item, filter }:Props) => {
                     {item.languages.map((e,index)=>(
                         <input
                         key={index}
-                        readOnly={true}
+                        readOnly
                         value={e}
                         type="button"
                         onClick={e => filter(e.currentTarget.value)}
